@@ -3,12 +3,20 @@ using UnityEngine;
 public class GroundChecker : MonoBehaviour
 {
     [SerializeField] private MoverCharacter _moverCharacter;
-    [SerializeField] private Vector2 _raycastOffset;
     [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] private float _raycastDistance;
-    [SerializeField] private float _x;
-    [SerializeField] private float _y;
+
+    private Vector2 _raycastOffset;
+    private float _offsetX = 0f;
+    private float _offsetY = -0.1f;
+    private float _raycastDistance = 0;
+    private float _sizeX = 0.19f;
+    private float _sizeY = 0.05f;
+
+    private void Start()
+    {
+        _raycastOffset = new Vector2(_offsetX, _offsetY);
+    }
 
     private void FixedUpdate()
     {
@@ -18,7 +26,7 @@ public class GroundChecker : MonoBehaviour
     private void CheckIfOnGround()
     {
         Vector2 raycastOrigin = (Vector2)transform.position + _raycastOffset;
-        RaycastHit2D hit = Physics2D.BoxCast(raycastOrigin, new Vector2(_x, _y), 0f, -Vector2.up, _raycastDistance, _groundLayer | _enemyLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(raycastOrigin, new Vector2(_sizeX, _sizeY), 0f, -Vector2.up, _raycastDistance, _groundLayer | _enemyLayer);
 
         if (hit.collider != null)
         {

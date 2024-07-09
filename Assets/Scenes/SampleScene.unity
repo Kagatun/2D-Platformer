@@ -596,6 +596,7 @@ GameObject:
   - component: {fileID: 652004000}
   - component: {fileID: 652004002}
   - component: {fileID: 652004003}
+  - component: {fileID: 652004004}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -807,9 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2051a6823a0b8cd4088a14dc1b481cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animations: {fileID: 652003999}
-  _rigidbody: {fileID: 652003997}
-  _moverCharacter: {fileID: 652003998}
+  _healthCondition: {fileID: 652004004}
 --- !u!114 &652004002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,17 +823,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moverCharacter: {fileID: 652003998}
   _hero: {fileID: 652004000}
+  _healthCondition: {fileID: 652004004}
   _enemy: {fileID: 1567270276}
-  _raycastOffset: {x: 0, y: -0.1}
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  _raycastDistance: 0
-  _x: 0.19
-  _y: 0.05
 --- !u!114 &652004003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,16 +844,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moverCharacter: {fileID: 652003998}
-  _raycastOffset: {x: 0, y: -0.1}
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  _raycastDistance: 0
-  _x: 0.19
-  _y: 0.05
+--- !u!114 &652004004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652003992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f07ff7f22d14147921bed8116bd249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animations: {fileID: 652003999}
+  _rigidbody: {fileID: 652003997}
+  _moverCharacter: {fileID: 652003998}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
