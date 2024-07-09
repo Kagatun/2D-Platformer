@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class AnimationsCharacter : MonoBehaviour
 {
-    [SerializeField] private Animator _animator;
-
     private const string Run = "isMoving";
     private const string Fall = "isFlying";
     private const string Hit = "takeDamage";
     private const string Jump = "jump";
     private const string JumpDouble = "jumpDouble";
+
+    [SerializeField] private Animator _animator;
 
     public bool IsMoving { get; private set; }
     public bool IsFlying { get; private set; }

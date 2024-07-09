@@ -4,11 +4,15 @@ public class Attacker : MonoBehaviour
 {
     [SerializeField] private MoverEnemy _moverEnemy;
 
+    private Transform _target;
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.TryGetComponent(out Hero hero))
         {
-            _moverEnemy.GoToWaypoint(false);
+            _target = collider.transform;
+
+            _moverEnemy.StopMovementToWaypoint(_target.transform);
         }
     }
 
@@ -16,7 +20,8 @@ public class Attacker : MonoBehaviour
     {
         if (collider.gameObject.TryGetComponent(out Hero hero))
         {
-            _moverEnemy.GoToWaypoint(true);
+            _moverEnemy.StartMovementToWaypoint();
+            _target = null;
         }
     }
 }

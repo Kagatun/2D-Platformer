@@ -62,9 +62,14 @@ public class MoverCharacter : MonoBehaviour
         }
     }
 
-    public void SetGroundedStatus(bool isGrounded)
+    public void TurnOffGrounding()
     {
-        _isGrounded = isGrounded;
+        _isGrounded = false;
+    }
+
+    public void TurnOnGrounding()
+    {
+        _isGrounded = true;
     }
 
     public void JumpAfterImpact()
@@ -82,11 +87,12 @@ public class MoverCharacter : MonoBehaviour
     {
         _input = new Vector2(Input.GetAxis(Horizontal), 0);
         transform.position += _input * _speed * Time.deltaTime;
-        _isMoving = _input.x != 0 ? true : false;
+
+        _isMoving = _input.x != 0;
 
         if (_isMoving)
         {
-            _personSprite.flipX = _input.x > 0 ? false : true;
+            _personSprite.flipX = _input.x <= 0;
         }
 
         _animations.EnableMotionAnimation(_isMoving);

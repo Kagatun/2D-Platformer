@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class AnimationsEnemy : MonoBehaviour
 {
-    [SerializeField] private Animator _animator;
-
     private const string Velocity = "speed";
     private const string Hit = "hit";
+
+    [SerializeField] private Animator _animator;
 
     public float Speed { get; private set; }
 

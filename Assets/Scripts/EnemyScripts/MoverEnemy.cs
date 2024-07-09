@@ -5,10 +5,10 @@ public class MoverEnemy : MonoBehaviour
     [SerializeField] private Transform[] _waypoints;
     [SerializeField] private SpriteRenderer _enemySprite;
     [SerializeField] private Enemy _enemy;
-    [SerializeField] private Hero _hero;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private AnimationsEnemy _animations;
 
+    private Transform _target;
     private bool _isMoving;
     private int _currentWaypoint = 0;
     private float _speed = 0.7f;
@@ -29,9 +29,15 @@ public class MoverEnemy : MonoBehaviour
         }
     }
 
-    public void GoToWaypoint(bool isGotoWaypoint)
+    public void StartMovementToWaypoint()
     {
-        IsGotoWaypoint = isGotoWaypoint;
+        IsGotoWaypoint = true;
+    }
+
+    public void StopMovementToWaypoint(Transform target)
+    {
+        IsGotoWaypoint = false;
+        _target = target;
     }
 
     private void Move()
@@ -44,7 +50,7 @@ public class MoverEnemy : MonoBehaviour
         }
         else
         {
-            MoveToHero(movementSpeed);
+            MoveTowardsTarget(_target.transform.position, movementSpeed);
         }
     }
 
@@ -58,11 +64,6 @@ public class MoverEnemy : MonoBehaviour
         }
 
         MoveTowardsTarget(_waypoints[_currentWaypoint].position, movementSpeed);
-    }
-
-    private void MoveToHero(float movementSpeed)
-    {
-        MoveTowardsTarget(_hero.transform.position, movementSpeed);
     }
 
     private void MoveTowardsTarget(Vector3 target, float movementSpeed)

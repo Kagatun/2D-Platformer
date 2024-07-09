@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 
     private WaitForSecondsRealtime _wait;
     private float _time = 1.2f;
-    private bool _isLive;
+    private bool _isDead;
 
     public float ForcePush { get; private set; } = 2;
     public int Damage { get; private set; } = 1;
@@ -18,27 +18,22 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        _isLive = true;
+        _isDead = false;
         _wait = new WaitForSecondsRealtime(_time);
     }
 
     private void Update()
     {
-        Die();
+        if (!IsLive && !_isDead)
+        {
+            PlantDestroy();
+        }
     }
 
     public void TakeDamage(int damage)
     {
         Health -= damage;
         _animations.AnimationHit();
-    }
-
-    private void Die()
-    {
-        if(Health <= 0 && _isLive)
-        {
-            PlantDestroy();
-        }
     }
 
     private IEnumerator EnableDeleteTimer()
@@ -52,7 +47,7 @@ public class Enemy : MonoBehaviour
 
     private void PlantDestroy()
     {
-        _isLive = false;
+        _isDead = true;
         _collider.enabled = false;
         _rigidbody.velocity = Vector2.zero;
 

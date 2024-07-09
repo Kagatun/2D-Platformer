@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CheckGround : MonoBehaviour
+public class GroundChecker : MonoBehaviour
 {
     [SerializeField] private MoverCharacter _moverCharacter;
     [SerializeField] private Vector2 _raycastOffset;
@@ -13,13 +13,6 @@ public class CheckGround : MonoBehaviour
     private void FixedUpdate()
     {
         CheckIfOnGround();
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Vector2 raycastOrigin = (Vector2)transform.position + _raycastOffset;
-        Gizmos.DrawWireCube(raycastOrigin + (-(Vector2)transform.up) * _raycastDistance, new Vector2(_x, _y));
     }
 
     private void CheckIfOnGround()
@@ -35,12 +28,12 @@ public class CheckGround : MonoBehaviour
             }
             else if (_groundLayer == (_groundLayer | (1 << hit.collider.gameObject.layer)))
             {
-                _moverCharacter.SetGroundedStatus(true);
+                _moverCharacter.TurnOnGrounding();
             }
         }
         else
         {
-            _moverCharacter.SetGroundedStatus(false);
+            _moverCharacter.TurnOffGrounding();
         }
     }
 }

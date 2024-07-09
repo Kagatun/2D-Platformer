@@ -23,7 +23,6 @@ public class Hero : MonoBehaviour
         if (_health <= 0 || _rigidbody.velocity.y < _deadlySpeedFall)
         {
             Destroy(gameObject);
-            print("Герой погиб");
         }
     }
 
@@ -67,7 +66,6 @@ public class Hero : MonoBehaviour
         {
             _numberCoins++;
             Destroy(coin.gameObject);
-            print("Монетка подобрана. Монетки героя " + _numberCoins);
         }
     }
 
@@ -77,7 +75,6 @@ public class Hero : MonoBehaviour
         {
             RestoreHealth(apple.HealingPoints);
             Destroy(apple.gameObject);
-            print("Здоровье восстановлено. Здоровье героя " + _health);
         }
     }
 }

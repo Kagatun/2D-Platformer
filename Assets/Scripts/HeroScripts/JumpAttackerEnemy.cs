@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CheckEnemy : MonoBehaviour
+public class JumpAttackerEnemy : MonoBehaviour
 {
     [SerializeField] private MoverCharacter _moverCharacter;
     [SerializeField] private Hero _hero;
@@ -35,12 +35,5 @@ public class CheckEnemy : MonoBehaviour
                 _hero.TakeDamage(collision);
             }
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Vector2 raycastOrigin = (Vector2)transform.position + _raycastOffset;
-        Gizmos.DrawWireCube(raycastOrigin + (-(Vector2)transform.up) * _raycastDistance, new Vector2(_x, _y));
     }
 }
