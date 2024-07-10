@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Patrol : MonoBehaviour
 {
-    [SerializeField] private Transform[] _waypoints;
     [SerializeField] private AnimationsEnemy _animations;
+    [SerializeField] private Transform[] _waypoints;
     [SerializeField] private SpriteRenderer _enemySprite;
     [SerializeField] private Rigidbody2D _rigidbody;
 
@@ -38,6 +38,4 @@ public class Patrol : MonoBehaviour
 
         _animations.EnableMotionAnimation(movementSpeed);
     }
-
-
 }
