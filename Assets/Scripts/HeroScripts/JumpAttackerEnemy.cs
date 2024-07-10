@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class JumpAttackerEnemy : MonoBehaviour
 {
-    [SerializeField] private MoverCharacter _moverCharacter;
+    [SerializeField] private JumpCharacter _jumpCharacter;
     [SerializeField] private Hero _hero;
     [SerializeField] private HealthCondition _healthCondition;
     [SerializeField] private Enemy _enemy;
@@ -36,7 +36,7 @@ public class JumpAttackerEnemy : MonoBehaviour
 
             if (hit)
             {
-                _moverCharacter.JumpAfterImpact();
+                _jumpCharacter.SecondJump();
                 enemy.TakeDamage(_hero.Damage);
             }
             else

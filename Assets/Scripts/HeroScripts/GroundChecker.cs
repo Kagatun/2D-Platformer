@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GroundChecker : MonoBehaviour
 {
-    [SerializeField] private MoverCharacter _moverCharacter;
+    [SerializeField] private JumpCharacter _jumpCharacter;
     [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private LayerMask _groundLayer;
 
@@ -36,12 +36,12 @@ public class GroundChecker : MonoBehaviour
             }
             else if (_groundLayer == (_groundLayer | (1 << hit.collider.gameObject.layer)))
             {
-                _moverCharacter.TurnOnGrounding();
+                _jumpCharacter.TurnOnGrounding();
             }
         }
         else
         {
-            _moverCharacter.TurnOffGrounding();
+            _jumpCharacter.TurnOffGrounding();
         }
     }
 }

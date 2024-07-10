@@ -4,7 +4,7 @@ public class HealthCondition : MonoBehaviour
 {
     [SerializeField] private AnimationsCharacter _animations;
     [SerializeField] private Rigidbody2D _rigidbody;
-    [SerializeField] private MoverCharacter _moverCharacter;
+    [SerializeField] private ClickHandler _clickHandler;
 
     private int _maxHealth = 5;
     private int _health;
@@ -30,7 +30,7 @@ public class HealthCondition : MonoBehaviour
             _health -= enemy.Damage;
 
             _animations.TriggerTakeDamage();
-            _moverCharacter.FreezeControl();
+            _clickHandler.FreezeControl();
 
             _rigidbody.velocity = Vector2.zero;
 

@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 1048552853723092667}
   - component: {fileID: 4122941371162725530}
   - component: {fileID: 6244945436641235561}
+  - component: {fileID: 7780159525446677564}
+  - component: {fileID: 7634800572050505839}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -224,14 +226,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9631034b37954ec4a9cad1499f6a46cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _patrol: {fileID: 0}
+  _chase: {fileID: 0}
+--- !u!114 &7780159525446677564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597461252180882998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d73a00e8a6551d0429c761bc5517b6b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animations: {fileID: 0}
+  _enemySprite: {fileID: 0}
+  _rigidbody: {fileID: 0}
+--- !u!114 &7634800572050505839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597461252180882998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885562065428c0940992dd5d2dab6fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  _enemySprite: {fileID: 3381955071748644181}
-  _enemy: {fileID: 4122941371162725530}
-  _hero: {fileID: 0}
-  _rigidbody: {fileID: 2201757417818644358}
-  _animations: {fileID: 1048552853723092667}
+  _animations: {fileID: 0}
+  _enemySprite: {fileID: 0}
+  _rigidbody: {fileID: 0}
 --- !u!1 &2056936820937094260
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,4 +351,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604fc304c6c409c4198b10c681636332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moverEnemy: {fileID: 6244945436641235561}
+  _targetSwitchEnemy: {fileID: 0}

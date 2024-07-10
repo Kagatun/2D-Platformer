@@ -10,11 +10,11 @@ public class Enemy : MonoBehaviour
     private WaitForSecondsRealtime _wait;
     private float _time = 1.2f;
     private bool _isDead;
+    private int _health = 2;
 
     public float ForcePush { get; private set; } = 2;
     public int Damage { get; private set; } = 1;
-    public int Health { get; private set; } = 2;
-    public bool IsLive => Health > 0;
+    public bool IsLive => _health > 0;
 
     private void Start()
     {
@@ -26,13 +26,13 @@ public class Enemy : MonoBehaviour
     {
         if (!IsLive && !_isDead)
         {
-            PlantDestroy();
+            Die();
         }
     }
 
     public void TakeDamage(int damage)
     {
-        Health -= damage;
+        _health -= damage;
         _animations.AnimationHit();
     }
 
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void PlantDestroy()
+    private void Die()
     {
         _isDead = true;
         _collider.enabled = false;

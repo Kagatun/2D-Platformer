@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class AnimationsEnemy : MonoBehaviour
 {
-    private const string Velocity = "speed";
-    private const string Hit = "hit";
+    private static class AnimationParams
+    {
+        public static readonly int Velocity = Animator.StringToHash("speed");
+        public static readonly int Hit = Animator.StringToHash("hit");
+    }
 
     [SerializeField] private Animator _animator;
 
@@ -11,7 +14,7 @@ public class AnimationsEnemy : MonoBehaviour
 
     private void Update()
     {
-        _animator.SetFloat(Velocity, Speed);
+        _animator.SetFloat(AnimationParams.Velocity, Speed);
     }
 
     public void EnableMotionAnimation(float speed)
@@ -21,6 +24,6 @@ public class AnimationsEnemy : MonoBehaviour
 
     public void AnimationHit()
     {
-        _animator.SetTrigger(Hit);
+        _animator.SetTrigger(AnimationParams.Hit);
     }
 }

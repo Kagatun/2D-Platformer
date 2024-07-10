@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class AnimationsCharacter : MonoBehaviour
 {
-    private const string Run = "isMoving";
-    private const string Fall = "isFlying";
-    private const string Hit = "takeDamage";
-    private const string Jump = "jump";
-    private const string JumpDouble = "jumpDouble";
+    private static class AnimationParams
+    {
+        public static readonly int Run = Animator.StringToHash("isMoving");
+        public static readonly int Fall = Animator.StringToHash("isFlying");
+        public static readonly int Hit = Animator.StringToHash("takeDamage");
+        public static readonly int Jump = Animator.StringToHash("jump");
+        public static readonly int JumpDouble = Animator.StringToHash("jumpDouble");
+    }
 
     [SerializeField] private Animator _animator;
 
@@ -15,8 +18,8 @@ public class AnimationsCharacter : MonoBehaviour
 
     private void Update()
     {
-        _animator.SetBool(Run, IsMoving);
-        _animator.SetBool(Fall, IsFlying);
+        _animator.SetBool(AnimationParams.Run, IsMoving);
+        _animator.SetBool(AnimationParams.Fall, IsFlying);
     }
 
     public void EnableMotionAnimation(bool isMoving)
@@ -31,16 +34,16 @@ public class AnimationsCharacter : MonoBehaviour
 
     public void TriggerJump()
     {
-        _animator.SetTrigger(Jump);
+        _animator.SetTrigger(AnimationParams.Jump);
     }
 
     public void TriggerJumpDouble()
     {
-        _animator.SetTrigger(JumpDouble);
+        _animator.SetTrigger(AnimationParams.JumpDouble);
     }
 
     public void TriggerTakeDamage()
     {
-        _animator.SetTrigger(Hit);
+        _animator.SetTrigger(AnimationParams.Hit);
     }
 }
