@@ -4,8 +4,6 @@ public class JumpAttackerEnemy : MonoBehaviour
 {
     [SerializeField] private JumpCharacter _jumpCharacter;
     [SerializeField] private Hero _hero;
-    [SerializeField] private HealthCondition _healthCondition;
-    [SerializeField] private Enemy _enemy;
     [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private LayerMask _groundLayer;
 
@@ -41,7 +39,7 @@ public class JumpAttackerEnemy : MonoBehaviour
             }
             else
             {
-                _healthCondition.TakeDamage(collision);
+                _hero.TakeDamage(enemy.Damage, collision);
             }
         }
     }

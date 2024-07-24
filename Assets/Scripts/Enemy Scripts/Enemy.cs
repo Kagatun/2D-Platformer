@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Character
 {
     [SerializeField] private AnimationsEnemy _animations;
     [SerializeField] private Rigidbody2D _rigidbody;
@@ -10,16 +10,16 @@ public class Enemy : MonoBehaviour
     private WaitForSecondsRealtime _wait;
     private float _time = 1.2f;
     private bool _isDead;
-    private int _health = 2;
 
-    public float ForcePush { get; private set; } = 2;
     public int Damage { get; private set; } = 1;
-    public bool IsLive => _health > 0;
+    public bool IsLive => health > 0;
 
-    private void Start()
+    protected override void Start()
     {
+        maxHealth = 2;
         _isDead = false;
         _wait = new WaitForSecondsRealtime(_time);
+        base.Start();
     }
 
     private void Update()
@@ -30,9 +30,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
-        _health -= damage;
+        base.TakeDamage(damage);
         _animations.AnimationHit();
     }
 
