@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class MoverHealthBarSmooth : MonoBehaviour
+public class TargetPursuer : MonoBehaviour
 {
     [SerializeField] private Transform _transformTarget;
+    [SerializeField] private float _offsetY;
 
     private void Update()
     {
         if (_transformTarget != null)
         {
-            transform.position = _transformTarget.transform.position + new Vector3(0, 0.17f, 0);
+            transform.position = _transformTarget.transform.position + new Vector3(0, _offsetY, 0);
         }
-
-        if (_transformTarget == null)
+        else
         {
             Destroy(gameObject);
         }

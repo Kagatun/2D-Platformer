@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Hero : Character
@@ -9,7 +8,7 @@ public class Hero : Character
     private int _numberCoins = 0;
     private float _deadlySpeedFall = -12f;
 
-    public int Damage { get; private set; } = 1;
+    public int Damage { get; private set; } = 25;
 
     private void Update()
     {

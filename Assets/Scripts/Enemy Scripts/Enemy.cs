@@ -8,9 +8,9 @@ public class Enemy : Character
     [SerializeField] private Collider2D _collider;
 
     private WaitForSecondsRealtime _wait;
-    private float _time = 1f;
+    private float _time = 2f;
 
-    public int Damage { get; private set; } = 1;
+    public int Damage { get; private set; } = 25;
 
     private void Start()
     {
